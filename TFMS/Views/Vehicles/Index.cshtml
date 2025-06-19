@@ -11,6 +11,7 @@
 </p>
 
 @* --- Search and Filter Section --- *@
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; box-shadow: 0 2px 6px gray;">
 <form asp-controller="Vehicles" asp-action="Index" method="get" class="mb-4">
     <div class="row g-2 align-items-end">
         <div class="col-md-3">
@@ -37,7 +38,8 @@
 </form>
 @* --- End Search and Filter Section --- *@
 
-<table class="table table-hover" id="vehiclesTable">
+    @* <h3 style="margin-top: 0;">User Details</h3> *@
+<table class="table table-hover table-striped mb-100px " style="background-color:gray" id="vehiclesTable">
     <thead>
         <tr>
             <th data-sort-column="RegistrationNumber" class="cursor-pointer">
@@ -71,6 +73,7 @@
         </tr>
     </thead>
     <tbody>
+
         @foreach (var item in Model)
         {
             <tr>
@@ -102,14 +105,15 @@
                     @Html.DisplayFor(modelItem => item.CurrentOdometerKm)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.VehicleId" class="btn btn-outline-info">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.VehicleId" class="btn btn-outline-warning">Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.VehicleId" class="btn btn-outline-primary">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.VehicleId" class="btn btn-outline-secondary">Details</a>
                     <a asp-action="Delete" asp-route-id="@item.VehicleId" class="btn btn-outline-danger">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+</div>
 
 @section Scripts {
     @{
@@ -131,6 +135,16 @@
         .sort-desc::after {
             content: "\25BC"; /* Down arrow */
         }
+        /* Custom striping for light and dark rows */
+        #vehiclesTable.table-striped tbody tr:nth-of-type(odd) {
+            background-color: #f2f2f2; /* light gray */
+        }
+
+        #vehiclesTable.table-striped tbody tr:nth-of-type(even) {
+            background-color: #4f4f4f; /* dark gray */
+            color: white; /* text color for dark row */
+        }
+
     </style>
 
     <script>
