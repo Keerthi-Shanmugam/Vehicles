@@ -12,8 +12,8 @@ using TFMS.Data;
 namespace TFMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250617061726_Initial")]
-    partial class Initial
+    [Migration("20250619120137_initialmigration")]
+    partial class initialmigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

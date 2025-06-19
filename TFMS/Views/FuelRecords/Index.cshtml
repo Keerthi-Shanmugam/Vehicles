@@ -13,7 +13,7 @@
 @* --- Search and Filter Section --- *@
 <form asp-controller="FuelRecords" asp-action="Index" method="get" class="mb-4">
     <div class="row g-3 align-items-end">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label for="SearchString" class="form-label">Search (Location)</label>
             <input type="text" name="searchString" id="SearchString" class="form-control" value="@ViewBag.CurrentSearchString" />
         </div>
@@ -23,21 +23,21 @@
                 @* "All Vehicles" is in ViewBag *@
             </select>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label for="DriverFilter" class="form-label">Filter by Driver</label>
             <select name="driverIdFilter" id="DriverFilter" class="form-select" asp-items="ViewBag.DriverFilter">
                 @* "All Drivers" is in ViewBag *@
             </select>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
             <label for="StartDate" class="form-label">Start Date</label>
             <input type="date" name="startDate" id="StartDate" class="form-control" value="@ViewBag.CurrentStartDate" />
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
             <label for="EndDate" class="form-label">End Date</label>
             <input type="date" name="endDate" id="EndDate" class="form-control" value="@ViewBag.CurrentEndDate" />
         </div>
-        <div class="col-md-12 d-flex justify-content-end mt-2">
+        <div class="col-md-3 d-flex justify-content-end mt-2">
             <button type="submit" class="btn btn-outline-secondary">Apply Filters</button>
             <a asp-action="Index" class="btn btn-outline-danger ms-2">Clear Filters</a>
         </div>
@@ -69,7 +69,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Location)
             </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -99,9 +99,9 @@
                 <td>
                     @if (User.IsInRole("Fleet Administrator"))
                     {
-                        <a asp-action="Edit" asp-route-id="@item.FuelId">Edit</a> 
-                        <a asp-action="Details" asp-route-id="@item.FuelId">Details</a> 
-                        <a asp-action="Delete" asp-route-id="@item.FuelId">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.FuelId" class="btn btn-outline-info">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.FuelId" class="btn btn-outline-success">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.FuelId" class="btn btn-outline-danger">Delete</a>
                     }
                     else
                     {

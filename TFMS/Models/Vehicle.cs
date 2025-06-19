@@ -12,10 +12,10 @@ namespace TFMS.Models // Your correct namespace
 
         [Required]
         [StringLength(20)]
-        [Display(Name = "Registration Number")]
+        [Display(Name = "Reg No")]
         public string RegistrationNumber { get; set; } = string.Empty;
 
-        [Display(Name = "Capacity (kg/passengers)")]
+        [Display(Name = "Capacity")]
         public int Capacity { get; set; } // This should be non-nullable, as capacity is usually a definite number
 
         [Required]
@@ -23,7 +23,7 @@ namespace TFMS.Models // Your correct namespace
         public string Status { get; set; } = "Active"; // e.g., Active, In Maintenance, Out of Service, Retired
 
         [DataType(DataType.Date)]
-        [Display(Name = "Last Serviced Date")]
+        [Display(Name = "Last Service")]
         public DateTime? LastServicedDate { get; set; } // <<< ENSURE THIS IS NULLABLE
 
         [Required]
@@ -34,7 +34,7 @@ namespace TFMS.Models // Your correct namespace
         [StringLength(100)]
         public string Model { get; set; } = string.Empty;
 
-        [Display(Name = "Manufacturing Year")]
+        [Display(Name = "MFG Year")]
         public int ManufacturingYear { get; set; } // This should be non-nullable, as year is a definite number
 
         [Required]
@@ -42,10 +42,10 @@ namespace TFMS.Models // Your correct namespace
         [Display(Name = "Fuel Type")]
         public string FuelType { get; set; } = "Petrol"; // e.g., Petrol, Diesel, Electric
 
-        [Display(Name = "Current Odometer (km)")]
+        [Display(Name = "Odometer")]
         public double? CurrentOdometerKm { get; set; } // <<< ENSURE THIS IS NULLABLE
 
-        // Navigation properties for related entities
+        // Navigation properties for related entitiesS
         public ICollection<Trip>? Trips { get; set; }
         public ICollection<FuelRecord>? FuelRecords { get; set; }
         public ICollection<Maintenance>? MaintenanceRecords { get; set; }
