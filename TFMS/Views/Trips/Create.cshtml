@@ -418,12 +418,15 @@
         ViewData["Title"] = "Create Trip";
     }
 
-    <div class="main-content-wrapper">
-        <h1>Create Trip</h1>
-
-        <hr />
+    <div class="container mt-4 col-10">
+        <div class="card" style="box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); border-radius: 10px; padding: 24px; background-color: #fff;">
+            <div class="card-header  text-white" style="background-color:var(--primary)">
+                <h4 class="mb-0">Trips</h4>
+            </div>
+            <div class="card-body">
+                </hr>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 @* Changed col-md-4 to col-md-8 for a wider form as seen in delete.cshtml *@
                 <div class="form-filter-container">
                     <form asp-action="Create">
@@ -487,10 +490,8 @@
             </div>
         </div>
     </div>
-
-    <footer>
-        &copy; 2024 FleetHub. All rights reserved.
-    </footer>
+    </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

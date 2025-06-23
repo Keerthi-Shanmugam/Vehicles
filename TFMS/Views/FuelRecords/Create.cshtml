@@ -3,76 +3,74 @@
 @{
     ViewData["Title"] = "Add Fuel Record";
 }
+<div class="container mt-4">
+    <div class="card shadow-lg border-10" style="border-radius: 10px;">
+        <div class="card-header text-white" style="background-color:var(--primary)">
+            <h5 class="mb-0">Add Fuel Record</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
-<h1>Add Fuel Record</h1>
+                <div class="mb-3">
+                    <label asp-for="VehicleId" class="form-label"></label>
+                    <select asp-for="VehicleId" class="form-select" asp-items="ViewBag.VehicleId"></select>
+                    <span asp-validation-for="VehicleId" class="text-danger small"></span>
+                </div>
 
-<h4>Fuel Record</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="DriverId" class="form-label"></label>
+                    @if (User.IsInRole("Driver"))
+                    {
+                        <input type="hidden" asp-for="DriverId" value="@ViewBag.DriverIdValue" />
+                        <input class="form-control" value="@ViewBag.DriverName" readonly />
+                    }
+                    else
+                    {
+                        <select asp-for="DriverId" class="form-select" asp-items="ViewBag.DriverId"></select>
+                    }
+                    <span asp-validation-for="DriverId" class="text-danger small"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="VehicleId" class="control-label"></label>
-                <select asp-for="VehicleId" class="form-control" asp-items="ViewBag.VehicleId"></select>
-                <span asp-validation-for="VehicleId" class="text-danger"></span>
-            </div>
+                <div class="mb-3">
+                    <label asp-for="Date" class="form-label"></label>
+                    <input asp-for="Date" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger small"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="DriverId" class="control-label"></label>
-                @if (User.IsInRole("Driver"))
-                {
-                    <input type="hidden" asp-for="DriverId" value="@ViewBag.DriverIdValue" />
-                    <input class="form-control" value="@ViewBag.DriverName" readonly />
-                }
-                else
-                {
-                    <select asp-for="DriverId" class="form-control" asp-items="ViewBag.DriverId"></select>
-                }
-                <span asp-validation-for="DriverId" class="text-danger"></span>
-            </div>
+                <div class="mb-3">
+                    <label asp-for="FuelQuantity" class="form-label"></label>
+                    <input asp-for="FuelQuantity" class="form-control" />
+                    <span asp-validation-for="FuelQuantity" class="text-danger small"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
+                <div class="mb-3">
+                    <label asp-for="Cost" class="form-label"></label>
+                    <input asp-for="Cost" class="form-control" />
+                    <span asp-validation-for="Cost" class="text-danger small"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="FuelQuantity" class="control-label"></label>
-                <input asp-for="FuelQuantity" class="form-control" />
-                <span asp-validation-for="FuelQuantity" class="text-danger"></span>
-            </div>
+                <div class="mb-3">
+                    <label asp-for="OdometerReadingKm" class="form-label"></label>
+                    <input asp-for="OdometerReadingKm" class="form-control" />
+                    <span asp-validation-for="OdometerReadingKm" class="text-danger small"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="Cost" class="control-label"></label>
-                <input asp-for="Cost" class="form-control" />
-                <span asp-validation-for="Cost" class="text-danger"></span>
-            </div>
+                <div class="mb-3">
+                    <label asp-for="Location" class="form-label"></label>
+                    <input asp-for="Location" class="form-control" />
+                    <span asp-validation-for="Location" class="text-danger small"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="OdometerReadingKm" class="control-label"></label>
-                <input asp-for="OdometerReadingKm" class="form-control" />
-                <span asp-validation-for="OdometerReadingKm" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Location" class="control-label"></label>
-                <input asp-for="Location" class="form-control" />
-                <span asp-validation-for="Location" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="d-flex justify-content-between align-items-center">
+                    <a asp-action="Index" class="btn btn-outline-secondary">← Back</a>
+                    <input type="submit" value="Create" class="btn btn-success" style="background-color:var(--accent)" />
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{

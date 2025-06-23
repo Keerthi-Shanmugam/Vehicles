@@ -23,29 +23,29 @@ namespace TFMS.Models // Your correct namespace
 
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Scheduled Date")]
+        [Display(Name = "Sch.Date")]
         public DateTime? ScheduledDate { get; set; }
 
         [Required] // Status is now an enum
         public MaintenanceStatus Status { get; set; } = MaintenanceStatus.Scheduled; // Default value
 
         [DataType(DataType.Date)]
-        [Display(Name = "Actual Completion Date")]
+        [Display(Name = "CMP Date")]
         public DateTime? ActualCompletionDate { get; set; }
 
         [Display(Name = "Cost")]
         [Column(TypeName = "decimal(18,2)")]
         public decimal? Cost { get; set; }
 
-        [Display(Name = "Odometer Reading (km)")]
+        [Display(Name = "Ometer ")]
         public double? OdometerReadingKm { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Performed By")]
+        [Display(Name = "Pfm By")]
         public string? PerformedBy { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Maintenance Type")]
+        [Display(Name = "Mnt.Type")]
         public string? MaintenanceType { get; set; }
     }
 }

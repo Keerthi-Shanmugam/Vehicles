@@ -1,114 +1,535 @@
-﻿@model IEnumerable<TFMS.Models.FuelRecord>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fleet Hub - Fuel Records</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /*
+                 * Start of CSS Styles
+                 * Pay close attention to matching curly braces {}
+                 */
 
-@{
-    ViewData["Title"] = "Fuel Records";
-}
+        :root {
+            --primary: #284B63; /* Dark Blue (Navy Blue) */
+            --secondary: #f3f3f3; /* Light Grey */
+            --accent: #eb5e28; /* Orange */
+            --bg: #fffcf2; /* Off-White/Cream */
+            --text-dark: #222; /* Dark Grey Text */
+            --text-light: #fff; /* White Text */
+            --button-hover: #ca5123; /* Darker Orange on hover */
+            --table-header-text: var(--text-light); /* Table header text (should be white) */
+        }
 
-<h1>Fuel Records</h1>
+        body {
+            background-color: var(--bg);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+        }
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">Add New Fuel Record</a>
-</p>
+        /* --- Navbar Styles --- */
+        .navbar {
+            background-color: var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-@* --- Search and Filter Section --- *@
-<form asp-controller="FuelRecords" asp-action="Index" method="get" class="mb-4">
-    <div class="row g-3 align-items-end">
-        <div class="col-md-2">
-            <label for="SearchString" class="form-label">Search (Location)</label>
-            <input type="text" name="searchString" id="SearchString" class="form-control" value="@ViewBag.CurrentSearchString" />
-        </div>
-        <div class="col-md-2">
-            <label for="VehicleFilter" class="form-label">Filter by Vehicle</label>
-            <select name="vehicleIdFilter" id="VehicleFilter" class="form-select" asp-items="ViewBag.VehicleFilter">
-                @* "All Vehicles" is in ViewBag *@
-            </select>
-        </div>
-        <div class="col-md-2">
-            <label for="DriverFilter" class="form-label">Filter by Driver</label>
-            <select name="driverIdFilter" id="DriverFilter" class="form-select" asp-items="ViewBag.DriverFilter">
-                @* "All Drivers" is in ViewBag *@
-            </select>
-        </div>
-        <div class="col-md-1">
-            <label for="StartDate" class="form-label">Start Date</label>
-            <input type="date" name="startDate" id="StartDate" class="form-control" value="@ViewBag.CurrentStartDate" />
-        </div>
-        <div class="col-md-1">
-            <label for="EndDate" class="form-label">End Date</label>
-            <input type="date" name="endDate" id="EndDate" class="form-control" value="@ViewBag.CurrentEndDate" />
-        </div>
-        <div class="col-md-3 d-flex justify-content-end mt-2">
-            <button type="submit" class="btn btn-outline-secondary">Apply Filters</button>
-            <a asp-action="Index" class="btn btn-outline-danger ms-2">Clear Filters</a>
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            font-weight: bold;
+            font-size: 1.8rem;
+            text-decoration: none;
+        }
+
+            .navbar-brand img {
+                height: 2.5rem;
+                margin-right: 10px;
+            }
+
+        .navbar-brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .navbar-brand small {
+            font-size: 0.8rem;
+            color: #ddd;
+            font-family: 'Georgia', serif;
+        }
+
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+        }
+
+            .nav-link:hover {
+                color: var(--accent) !important;
+            }
+
+        .navbar-icon-spacing {
+            margin-right: 10px; /* Adjust this value as needed */
+        }
+
+        .dropdown-menu {
+            border: none;
+            border-radius: 10px;
+            padding: 1rem;
+            background: var(--bg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            min-width: 500px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-item-custom {
+            color: var(--text-dark);
+            border-radius: 8px;
+            padding: 0.6rem;
+            transition: background 0.2s;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            text-decoration: none;
+        }
+
+            .dropdown-item-custom:hover {
+                background-color: var(--secondary);
+                color: var(--accent);
+            }
+
+            .dropdown-item-custom i {
+                font-size: 1.3rem;
+                color: var(--primary);
+            }
+        /* --- End Navbar Styles --- */
+
+        /* --- General Section/Container Styles --- */
+        .main-content-wrapper {
+            padding: 0.5rem 2rem 3rem; /* Reduced top padding from 1.5rem to 0.5rem */
+            max-width: 1300px;
+            margin: 0 auto;
+            background-color: var(--bg);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-align: left;
+            margin-top: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* --- Button Styles --- */
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--text-light);
+            border-radius: 8px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+            .btn-accent:hover {
+                background-color: var(--button-hover);
+                color: var(--text-light);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }
+
+        .btn-secondary-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            padding: 0.6rem 1.2rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+            .btn-secondary-outline:hover {
+                background-color: var(--primary);
+                color: var(--text-light);
+            }
+
+        .btn-action-small {
+            padding: 0.3rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            margin-left: 0.15rem;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-outline-primary-custom {
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            background-color: transparent;
+        }
+
+            .btn-outline-primary-custom:hover {
+                background-color: var(--primary);
+                color: var(--text-light);
+            }
+
+        .btn-outline-info-custom {
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            background-color: transparent;
+        }
+
+            .btn-outline-info-custom:hover {
+                background-color: var(--accent);
+                color: var(--text-light);
+            }
+
+        .btn-outline-success-custom {
+            color: #28a745;
+            border: 1px solid #28a745;
+            background-color: transparent;
+        }
+
+            .btn-outline-success-custom:hover {
+                background-color: #28a745;
+                color: var(--text-light);
+            }
+
+        .btn-outline-danger-custom {
+            color: #dc3545;
+            border: 1px solid #dc3545;
+            background-color: transparent;
+        }
+
+            .btn-outline-danger-custom:hover {
+                background-color: #dc3545;
+                color: var(--text-light);
+            }
+
+        /* --- Filter Form Styles --- */
+        .form-filter-container {
+            background-color: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .form-label-custom {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-control-custom,
+        .form-select-custom {
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            font-size: 1rem;
+            color: var(--text-dark);
+            background-color: var(--text-light);
+            width: 100%;
+        }
+
+            .form-control-custom:focus,
+            .form-select-custom:focus {
+                border-color: var(--primary);
+                box-shadow: 0 0 0 0.25rem rgba(40, 75, 99, 0.25);
+                outline: none;
+            }
+
+        /* --- Table Styles --- */
+        .table-responsive-custom {
+            margin-bottom: 3rem;
+        }
+
+        .table-custom {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            background-color: var(--text-light);
+        }
+
+            .table-custom thead {
+                background-color: var(--primary) !important;
+                color: var(--table-header-text);
+            }
+
+            .table-custom th {
+                background-color: var(--primary);
+                padding: 1rem 0.8rem;
+                font-weight: 600;
+                color: var(--text-light);
+                text-align: left;
+                white-space: normal;
+            }
+
+            .table-custom td {
+                padding: 0.8rem 0.8rem; /* This is the consistent padding */
+                vertical-align: middle;
+                white-space: normal;
+            }
+
+                .table-custom th:last-child,
+                .table-custom td:last-child {
+                    text-align: right;
+                    padding-right: 1.5rem;
+                    white-space: nowrap;
+                }
+
+            /* Zebra stripping for table rows */
+            .table-custom tbody tr:nth-of-type(odd) {
+                background-color: var(--text-light); /* Off-white/Cream */
+            }
+
+            .table-custom tbody tr:nth-of-type(even) {
+                background-color: var(--secondary); /* Light Grey */
+            }
+
+            .table-custom tbody tr:hover {
+                background-color: rgba(var(--accent-rgb), 0.2) !important; /* Lighter accent on hover */
+            }
+
+        /* --- Footer Styles --- */
+        /* Removed footer CSS as the element is no longer present */
+
+        /* Additional Home Page CSS (keeping for context, but not directly used on Trips) */
+        .hero {
+            padding: 6rem 1rem 4rem;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--bg), #fff6ec);
+        }
+
+            .hero h1 {
+                font-size: 3rem;
+                font-weight: bold;
+                color: var(--primary);
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                max-width: 600px;
+                margin: 1rem auto;
+                color: var(--text-dark);
+            }
+
+        .grid-cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .section-container {
+            padding: 3rem 1rem 3rem;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--bg), #fff6ec);
+        }
+
+            .section-container h1 {
+                font-size: 2rem;
+                font-weight: bold;
+                color: var(--primary);
+            }
+
+            .section-container p {
+                font-size: 1.1rem;
+                max-width: 600px;
+                margin: 1rem auto;
+                color: var(--text-dark);
+            }
+
+        .contact-details {
+            margin: 1rem auto;
+            font-size: 1.1rem;
+        }
+
+            .contact-details a {
+                color: var(--primary);
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                .contact-details a:hover {
+                    color: var(--accent);
+                }
+
+        .fleet-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 4rem 2rem;
+        }
+
+        .image-content {
+            flex: 1;
+            text-align: center;
+        }
+
+            .image-content img {
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+                border-radius: 10px;
+            }
+
+        .text-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        /* Media Query: Corrected and cleaned up */
+        /* media (max-width: 768px) { */
+        /* .dropdown-menu */
+
+        {
+            left: 0;
+            transform: translateX(0);
+            min-width: 100%;
+        }
+
+        }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
+
+        .sort-icon {
+            margin-left: 5px;
+        }
+
+        .sort-asc::after {
+            content: "\25B2"; /* Up arrow */
+        }
+
+        .sort-desc::after {
+            content: "\25BC"; /* Down arrow */
+        }
+    </style>
+</head>
+<body>
+    @model IEnumerable<TFMS.Models.FuelRecord>
+
+    @{
+        ViewData["Title"] = "Fuel Records";
+    }
+    <div class="container mt-4">
+        <div class="card" style="box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); border-radius: 10px; padding: 24px; background-color: #fff;">
+
+            <div class="card-header text-white d-flex justify-content-between align-items-center" style="background-color:var(--primary)">
+                <h5 class="mb-0">Fuel Records</h5>
+                <a asp-action="Create" class="btn btn-accent">
+                    <i class="bi bi-plus me-1"></i> Add New
+                </a>
+            </div>
+            <div class="card-body">
+                <form asp-controller="FuelRecords" asp-action="Index" method="get" class="mb-4 form-filter-container">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-md-2">
+                            <label for="SearchString" class="form-label-custom">Search (Location)</label>
+                            <input type="text" name="searchString" id="SearchString" class="form-control-custom" value="@ViewBag.CurrentSearchString" />
+                        </div>
+                        <div class="col-md-2">
+                            <label for="VehicleFilter" class="form-label-custom">Filter by Vehicle</label>
+                            <select name="vehicleIdFilter" id="VehicleFilter" class="form-select-custom" asp-items="ViewBag.VehicleFilter"></select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="DriverFilter" class="form-label-custom">Filter by Driver</label>
+                            <select name="driverIdFilter" id="DriverFilter" class="form-select-custom" asp-items="ViewBag.DriverFilter"></select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="StartDate" class="form-label-custom">Start Date</label>
+                            <input type="date" name="startDate" id="StartDate" class="form-control-custom" value="@ViewBag.CurrentStartDate" />
+                        </div>
+                        <div class="col-md-2">
+                            <label for="EndDate" class="form-label-custom">End Date</label>
+                            <input type="date" name="endDate" id="EndDate" class="form-control-custom" value="@ViewBag.CurrentEndDate" />
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-secondary-outline"><i class="bi bi-filter me-1"></i>Apply Filters</button>
+                            <a asp-action="Index" class="btn btn-secondary-outline ms-2"><i class="bi bi-arrow-counterclockwise me-1"></i>Clear Filters</a>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="table-responsive-custom">
+                    <table class="table table-striped table-hover table-custom align-middle">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Vehicle)</th>
+                                <th>@Html.DisplayNameFor(model => model.Driver)</th>
+                                <th>@Html.DisplayNameFor(model => model.Date)</th>
+                                <th>@Html.DisplayNameFor(model => model.FuelQuantity)</th>
+                                <th>@Html.DisplayNameFor(model => model.Cost)</th>
+                                <th>@Html.DisplayNameFor(model => model.OdometerReadingKm)</th>
+                                <th>@Html.DisplayNameFor(model => model.Location)</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Vehicle!.RegistrationNumber)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Driver!.Email)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.FuelQuantity)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Cost)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.OdometerReadingKm)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                                    <td>
+                                        @if (User.IsInRole("Fleet Administrator"))
+                                        {
+                                            <a asp-action="Edit" asp-route-id="@item.FuelId" class="btn btn-action-small btn-outline-primary-custom" title="Edit">
+                                                <i class="bi bi-pencil-square"></i> Edit
+                                            </a>
+                                            <a asp-action="Details" asp-route-id="@item.FuelId" class="btn btn-action-small btn-outline-info-custom" title="Details">
+                                                <i class="bi bi-info-circle"></i> Details
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@item.FuelId" class="btn btn-action-small btn-outline-danger-custom" title="Delete">
+                                                <i class="bi bi-trash"></i> Delete
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="Details" asp-route-id="@item.FuelId" class="btn btn-action-small btn-outline-info-custom" title="Details">
+                                                <i class="bi bi-info-circle"></i> Details
+                                            </a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
         </div>
     </div>
-</form>
-@* --- End Search and Filter Section --- *@
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Vehicle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Driver)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FuelQuantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OdometerReadingKm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Vehicle!.RegistrationNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Driver!.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FuelQuantity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cost)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OdometerReadingKm)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Location)
-                </td>
-                <td>
-                    @if (User.IsInRole("Fleet Administrator"))
-                    {
-                        <a asp-action="Edit" asp-route-id="@item.FuelId" class="btn btn-outline-info">Edit</a>
-                        <a asp-action="Details" asp-route-id="@item.FuelId" class="btn btn-outline-success">Details</a>
-                        <a asp-action="Delete" asp-route-id="@item.FuelId" class="btn btn-outline-danger">Delete</a>
-                    }
-                    else
-                    {
-                        <a asp-action="Details" asp-route-id="@item.FuelId">Details</a>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

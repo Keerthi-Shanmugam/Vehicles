@@ -4,96 +4,102 @@
 @{
     ViewData["Title"] = "Generate Performance Report";
 }
+<div class="container mt-4">
+    <div class="card shadow-lg border-10" style="border-radius: 10px;">
+        <div class="card-header text-white py-4" style="background-color:var(--primary)">
+            <h5 class="mb-0">Generate New Performance Report</h5>
+        </div>
+        <div class="card-body">
+            <h6 class="text-muted mb-3">Select Report Type, Date Range, and Optional Vehicle</h6>
 
-<h1>Generate New Performance Report</h1>
-
-<h4>Select Report Type, Date Range, and Optional Vehicle</h4>
-<hr />
-<div class="row">
-    <div class="col-md-6">
-        @if (!ViewData.ModelState.IsValid)
-        {
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach (var modelState in ViewData.ModelState.Values)
-                    {
-                        @foreach (var error in modelState.Errors)
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach (var modelState in ViewData.ModelState.Values)
                         {
-                            <li>@error.ErrorMessage</li>
+                            @foreach (var error in modelState.Errors)
+                            {
+                                <li>@error.ErrorMessage</li>
+                            }
                         }
-                    }
-                </ul>
-            </div>
-        }
+                    </ul>
+                </div>
+            }
 
-        <h5>Fuel Efficiency Report</h5>
-        <form asp-action="GenerateFuelEfficiencyReport" method="post">
-            <div class="form-group mb-3">
-                <label for="FuelStartDate">Start Date:</label>
-                <input type="date" id="FuelStartDate" name="startDate" class="form-control" required />
-            </div>
-            <div class="form-group mb-3">
-                <label for="FuelEndDate">End Date:</label>
-                <input type="date" id="FuelEndDate" name="endDate" class="form-control" required />
-            </div>
-            <div class="form-group mb-3">
-                <label for="FuelVehicleId">Select Vehicle (Optional):</label>
-                <select id="FuelVehicleId" name="vehicleId" class="form-select" asp-items="ViewBag.Vehicles">
-                    @* Options from ViewBag.Vehicles *@
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Generate Fuel Report" class="btn btn-primary" />
-            </div>
-        </form>
+            <div class="mb-4">
+                <h5>Fuel Efficiency Report</h5>
+                <form asp-action="GenerateFuelEfficiencyReport" method="post" class="mb-4">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="FuelStartDate" class="form-label">Start Date:</label>
+                            <input type="date" id="FuelStartDate" name="startDate" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="FuelEndDate" class="form-label">End Date:</label>
+                            <input type="date" id="FuelEndDate" name="endDate" class="form-control" required />
+                        </div>
+                        <div class="col-md-12">
+                            <label for="FuelVehicleId" class="form-label">Select Vehicle (Optional):</label>
+                            <select id="FuelVehicleId" name="vehicleId" class="form-select" asp-items="ViewBag.Vehicles"></select>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <input type="submit" value="Generate Fuel Report" class="btn" style="background-color:var(--accent)" />
+                    </div>
+                </form>
+                <hr style="border: none; height: 2px; background-color: black;" />
 
-        <h5 class="mt-4">Vehicle Utilization Report</h5>
-        <form asp-action="GenerateVehicleUtilizationReport" method="post">
-            <div class="form-group mb-3">
-                <label for="UtilStartDate">Start Date:</label>
-                <input type="date" id="UtilStartDate" name="startDate" class="form-control" required />
-            </div>
-            <div class="form-group mb-3">
-                <label for="UtilEndDate">End Date:</label>
-                <input type="date" id="UtilEndDate" name="endDate" class="form-control" required />
-            </div>
-            <div class="form-group mb-3">
-                <label for="UtilVehicleId">Select Vehicle (Optional):</label>
-                <select id="UtilVehicleId" name="vehicleId" class="form-select" asp-items="ViewBag.Vehicles">
-                    @* Options from ViewBag.Vehicles *@
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Generate Utilization Report" class="btn btn-primary" />
-            </div>
-        </form>
 
-        <h5 class="mt-4">Maintenance Cost Report</h5>
-        <form asp-action="GenerateMaintenanceCostReport" method="post">
-            <div class="form-group mb-3">
-                <label for="MaintenanceStartDate">Start Date:</label>
-                <input type="date" id="MaintenanceStartDate" name="startDate" class="form-control" required />
+                <h5>Vehicle Utilization Report</h5>
+                <form asp-action="GenerateVehicleUtilizationReport" method="post" class="mb-4">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="UtilStartDate" class="form-label">Start Date:</label>
+                            <input type="date" id="UtilStartDate" name="startDate" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="UtilEndDate" class="form-label">End Date:</label>
+                            <input type="date" id="UtilEndDate" name="endDate" class="form-control" required />
+                        </div>
+                        <div class="col-md-12">
+                            <label for="UtilVehicleId" class="form-label">Select Vehicle (Optional):</label>
+                            <select id="UtilVehicleId" name="vehicleId" class="form-select" asp-items="ViewBag.Vehicles"></select>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <input type="submit" value="Generate Utilization Report" class="btn" style="background-color:var(--accent)" />
+                    </div>
+                </form>
+                <hr style="border: none; height: 2px; background-color: black;" />
+
+                <h5>Maintenance Cost Report</h5>
+                <form asp-action="GenerateMaintenanceCostReport" method="post">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="MaintenanceStartDate" class="form-label">Start Date:</label>
+                            <input type="date" id="MaintenanceStartDate" name="startDate" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="MaintenanceEndDate" class="form-label">End Date:</label>
+                            <input type="date" id="MaintenanceEndDate" name="endDate" class="form-control" required />
+                        </div>
+                        <div class="col-md-12">
+                            <label for="MaintenanceVehicleId" class="form-label">Select Vehicle (Optional):</label>
+                            <select id="MaintenanceVehicleId" name="vehicleId" class="form-select" asp-items="ViewBag.Vehicles"></select>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <input type="submit" value="Generate Maintenance Report" class="btn" style="background-color:var(--accent)" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group mb-3">
-                <label for="MaintenanceEndDate">End Date:</label>
-                <input type="date" id="MaintenanceEndDate" name="endDate" class="form-control" required />
-            </div>
-            <div class="form-group mb-3">
-                <label for="MaintenanceVehicleId">Select Vehicle (Optional):</label>
-                <select id="MaintenanceVehicleId" name="vehicleId" class="form-select" asp-items="ViewBag.Vehicles">
-                    @* Options from ViewBag.Vehicles *@
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Generate Maintenance Report" class="btn btn-primary" />
-            </div>
-        </form>
+
+            <a asp-action="Index" class="btn btn-outline-secondary">← Back to Report List</a>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to Report List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

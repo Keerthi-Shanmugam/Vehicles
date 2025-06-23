@@ -3,36 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\views\\vehicles\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\views\\vehicles\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\views\\vehicles\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\views\\vehicles\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\views\\vehicles\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\views\\vehicles\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\views\\vehicles\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\views\\vehicles\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\views\\vehicles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\views\\vehicles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\views\\vehicles\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\views\\vehicles\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\views\\vehicles\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\views\\vehicles\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\views\\trips\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\views\\trips\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\models\\trip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\models\\trip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\views\\performancereports\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\views\\performancereports\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\views\\maintenancerecords\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\views\\maintenancerecords\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|c:\\users\\2406736\\source\\repos\\myproject\\fms\\tfms\\views\\fuelrecords\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{91128E8B-1F16-4631-898A-08FC07C73AC7}|TFMS\\TFMS.csproj|solutionrelative:tfms\\views\\fuelrecords\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,119 +46,121 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "TFMS\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "TFMS\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-19T16:31:59.506Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Vehicles\\Delete.cshtml",
-              "RelativeDocumentMoniker": "TFMS\\Views\\Vehicles\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Vehicles\\Delete.cshtml",
-              "RelativeToolTip": "TFMS\\Views\\Vehicles\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-19T16:27:03.597Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Vehicles\\Details.cshtml",
-              "RelativeDocumentMoniker": "TFMS\\Views\\Vehicles\\Details.cshtml",
-              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Vehicles\\Details.cshtml",
-              "RelativeToolTip": "TFMS\\Views\\Vehicles\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-19T16:23:07.769Z",
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\.gitignore",
+              "RelativeDocumentMoniker": "TFMS\\.gitignore",
+              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\.gitignore",
+              "RelativeToolTip": "TFMS\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-06-23T03:37:19.498Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Vehicles\\Edit.cshtml",
-              "RelativeDocumentMoniker": "TFMS\\Views\\Vehicles\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Vehicles\\Edit.cshtml",
-              "RelativeToolTip": "TFMS\\Views\\Vehicles\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-19T16:13:47.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "TFMS\\wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "TFMS\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-19T16:10:49.376Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Vehicles\\Create.cshtml",
               "RelativeDocumentMoniker": "TFMS\\Views\\Vehicles\\Create.cshtml",
               "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Vehicles\\Create.cshtml",
               "RelativeToolTip": "TFMS\\Views\\Vehicles\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABTAAAAAAAAAA==",
+              "ViewState": "AgIAALUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-19T16:05:19.047Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-20T11:57:43.434Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Vehicles\\Edit.cshtml",
+              "RelativeDocumentMoniker": "TFMS\\Views\\Vehicles\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Vehicles\\Edit.cshtml",
+              "RelativeToolTip": "TFMS\\Views\\Vehicles\\Edit.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-20T11:57:39.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Vehicles\\Index.cshtml",
               "RelativeDocumentMoniker": "TFMS\\Views\\Vehicles\\Index.cshtml",
               "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Vehicles\\Index.cshtml",
               "RelativeToolTip": "TFMS\\Views\\Vehicles\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-19T15:54:49.362Z",
+              "WhenOpened": "2025-06-20T11:35:00.408Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Vehicle.cs",
-              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Models\\Vehicle.cs",
-              "RelativeDocumentMoniker": "TFMS\\Models\\Vehicle.cs",
-              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Models\\Vehicle.cs",
-              "RelativeToolTip": "TFMS\\Models\\Vehicle.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA1wB0AAAAbAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Trip.cs",
+              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Models\\Trip.cs",
+              "RelativeDocumentMoniker": "TFMS\\Models\\Trip.cs",
+              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Models\\Trip.cs",
+              "RelativeToolTip": "TFMS\\Models\\Trip.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-19T15:51:01.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-20T11:21:28.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Trips\\Index.cshtml",
+              "RelativeDocumentMoniker": "TFMS\\Views\\Trips\\Index.cshtml",
+              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\Trips\\Index.cshtml",
+              "RelativeToolTip": "TFMS\\Views\\Trips\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-20T10:48:51.266Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\PerformanceReports\\Index.cshtml",
+              "RelativeDocumentMoniker": "TFMS\\Views\\PerformanceReports\\Index.cshtml",
+              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\PerformanceReports\\Index.cshtml",
+              "RelativeToolTip": "TFMS\\Views\\PerformanceReports\\Index.cshtml",
+              "ViewState": "AgIAAMQBAAAAAAAAAAAQwOsBAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-20T10:32:37.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\MaintenanceRecords\\Index.cshtml",
+              "RelativeDocumentMoniker": "TFMS\\Views\\MaintenanceRecords\\Index.cshtml",
+              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\MaintenanceRecords\\Index.cshtml",
+              "RelativeToolTip": "TFMS\\Views\\MaintenanceRecords\\Index.cshtml",
+              "ViewState": "AgIAABUCAAAAAAAAAAAAwCICAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-20T10:28:05.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\FuelRecords\\Index.cshtml",
+              "RelativeDocumentMoniker": "TFMS\\Views\\FuelRecords\\Index.cshtml",
+              "ToolTip": "C:\\Users\\2406736\\source\\repos\\myproject\\FMS\\TFMS\\Views\\FuelRecords\\Index.cshtml",
+              "RelativeToolTip": "TFMS\\Views\\FuelRecords\\Index.cshtml",
+              "ViewState": "AgIAAM4BAAAAAAAAAAAAAA0CAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-20T10:18:20.986Z"
             }
           ]
         }

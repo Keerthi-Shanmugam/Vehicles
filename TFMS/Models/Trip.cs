@@ -41,20 +41,20 @@ namespace TFMS.Models
         public ApplicationUser? Driver { get; set; } // Navigation property
 
         [StringLength(200)]
-        [Display(Name = "Start Location")]
+        [Display(Name = "Start Loc")]
         public string StartLocation { get; set; } = string.Empty;
 
 
         [StringLength(200)]
-        [Display(Name = "End Location")]
+        [Display(Name = "End Loc")]
         public string EndLocation { get; set; } = string.Empty;
 
      
-        [Display(Name = "Scheduled Start Time")]
+        [Display(Name = "Sch Start Time")]
         [DataType(DataType.DateTime)]
         public DateTime? ScheduledStartTime { get; set; }
 
-        [Display(Name = "Scheduled End Time")]
+        [Display(Name = "Sch End Time")]
         [DataType(DataType.DateTime)]
         public DateTime? ScheduledEndTime { get; set; }
 
@@ -62,19 +62,19 @@ namespace TFMS.Models
         [StringLength(50)]
         public string Status { get; set; } = TripStatus.Pending.ToString(); // Default status to "Pending"
 
-        [Display(Name = "Actual Start Time")]
+        [Display(Name = "Act Start Time")]
         [DataType(DataType.DateTime)]
         public DateTime? ActualStartTime { get; set; }
 
-        [Display(Name = "Actual End Time")]
+        [Display(Name = "Act End Time")]
         [DataType(DataType.DateTime)]
         public DateTime? ActualEndTime { get; set; }
 
-        [Display(Name = "Estimated Distance (km)")]
+        [Display(Name = "Est Dis (km)")]
         [Column(TypeName = "decimal(18, 2)")] // <<< ADD THIS LINE
         public decimal? EstimatedDistanceKm { get; set; }
 
-        [Display(Name = "Actual Distance (km)")]
+        [Display(Name = "Act Dis (km)")]
         [Column(TypeName = "decimal(18, 2)")] // <<< ADD THIS LINE
         public decimal? ActualDistanceKm { get; set; }
 

@@ -153,6 +153,7 @@
 
             .btn-accent:hover {
                 background-color: var(--button-hover);
+                
                 color: var(--text-light);
                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             }
@@ -168,7 +169,7 @@
         }
 
             .btn-secondary-outline:hover {
-                background-color: var(--primary);
+                background-color: #dc3545;
                 color: var(--text-light);
             }
 
@@ -209,11 +210,14 @@
             background-color: transparent;
         }
 
-            .btn-outline-danger-custom:hover {
+            .reset:hover {
                 background-color: #dc3545;
                 color: var(--text-light);
             }
-
+            .filter:hover{
+            background-color: var(--primary);
+            color: var(--text-light);
+            }
         /* --- Filter Form Styles --- */
         .form-filter-container {
             background-color: var(--secondary);
@@ -390,6 +394,10 @@
             flex: 1;
             text-align: left;
         }
+        .delete:hover{
+            background-color: #dc3545;
+            color: var(--text-light);
+        }
 
         /* Media Query: Corrected and cleaned up */
         /* media (max-width: 768px) { */
@@ -414,15 +422,20 @@
         ViewData["Title"] = "Trips";
     }
 
-    <div class="main-content-wrapper">
-        <h1>Trips</h1>
+    <div class="container mt-4">
+        <div class="card" style="box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); border-radius: 10px; padding: 24px; background-color: #fff;">
+            <div class="card-header  text-white" style="background-color:var(--primary)">
+                <h4 class="mb-0">Trips</h4>
+            </div>
+            <div class="card-body">
 
-        <p>
-            @if (User.IsInRole("Fleet Administrator"))
-            {
-                <a asp-action="Create" class="btn btn-accent">Create New Trip</a>
-            }
-        </p>
+                @* Existing content goes here *@
+                <p>
+                    @if (User.IsInRole("Fleet Administrator"))
+                    {
+                        <a asp-action="Create" class="btn btn-accent">Create New Trip</a>
+                    }
+                </p>
 
         <form asp-action="Index" method="get" class="mb-4 form-filter-container">
             <div class="row g-3 align-items-end">
@@ -454,8 +467,8 @@
                 }
 
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-secondary-outline"><i class="bi bi-filter me-1"></i>Filter</button>
-                    <a asp-action="Index" class="btn btn-secondary-outline ms-2"><i class="bi bi-arrow-counterclockwise me-1"></i>Reset</a>
+                    <button type="submit" class=" filter btn btn-secondary-outline"><i class="bi bi-filter me-1"></i>Filter</button>
+                    <a asp-action="Index" class="reset btn btn-secondary-outline ms-2"><i class="bi bi-arrow-counterclockwise me-1"></i>Reset</a>
                 </div>
             </div>
         </form>
@@ -523,7 +536,7 @@
                                 <a asp-action="UpdateStatus" asp-route-id="@item.TripId" class="" title="UpdateStatus">
                                     @* <i class="bi bi-info-circle"></i>Status *@
                                 </a>
-                                <a asp-action="Delete" asp-route-id="@item.TripId" class="btn btn-action-small btn-outline-danger-custom hidden" title="Delete">
+                                <a asp-action="Delete" asp-route-id="@item.TripId" class="delete btn btn-action-small btn-outline-danger-custom hidden" title="Delete">
                                     <i class="bi bi-trash"></i> Delete
                                 </a>
                             </td>
@@ -533,7 +546,8 @@
             </table>
         </div>
     </div>
-
+    </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>

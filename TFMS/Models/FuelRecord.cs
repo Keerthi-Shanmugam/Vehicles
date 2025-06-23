@@ -28,7 +28,7 @@ namespace TFMS.Models // Your correct namespace
         public DateTime? Date { get; set; } // <<< ENSURE THIS IS NULLABLE
 
         [Required]
-        [Display(Name = "Fuel Quantity (L)")]
+        [Display(Name = "Fuel Q (L)")]
         [Column(TypeName = "decimal(18,2)")] // Specify precision and scale for currency/quantity
         public decimal? FuelQuantity { get; set; } // <<< ENSURE THIS IS NULLABLE
 
@@ -37,7 +37,7 @@ namespace TFMS.Models // Your correct namespace
         [Column(TypeName = "decimal(18,2)")] // Specify precision and scale
         public decimal? Cost { get; set; } // <<< ENSURE THIS IS NULLABLE
 
-        [Display(Name = "Odometer Reading (km)")]
+        [Display(Name = "Ometer")]
         public double? OdometerReadingKm { get; set; } // <<< ENSURE THIS IS NULLABLE
 
         [StringLength(200)]

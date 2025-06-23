@@ -1,125 +1,65 @@
-﻿@model IEnumerable<TFMS.Models.Vehicle>
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@* @page
+@using TFMS.Models *@
+@model IEnumerable<TFMS.Models.Vehicle>
 
 @{
     ViewData["Title"] = "Vehicles";
 }
 
-<h1>Vehicles</h1>
-
-<p>
-    <a asp-action="Create" class="btn btn-primary" style="background-color:var(--accent)">Add New Vehicle</a>
-</p>
-
-@* --- Search and Filter Section --- *@
-<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; box-shadow: 0 2px 6px gray;">
-<form asp-controller="Vehicles" asp-action="Index" method="get" class="mb-4">
-    <div class="row g-2 align-items-end">
-        <div class="col-md-3">
-            <label for="SearchString" class="form-label">Search (Reg No, Make, Model)</label>
-            <input type="text" name="searchString" id="SearchString" class="form-control" value="@ViewBag.CurrentSearchString" />
-        </div>
-        <div class="col-md-3">
-            <label for="StatusFilter" class="form-label">Filter by Status</label>
-            <select name="statusFilter" id="StatusFilter" class="form-select" asp-items="ViewBag.StatusFilter">
-                <option value="">-- Select Status --</option>
-            </select>
-        </div>
-        <div class="col-md-3">
-            <label for="FuelTypeFilter" class="form-label">Filter by Fuel Type</label>
-            <select name="fuelTypeFilter" id="FuelTypeFilter" class="form-select" asp-items="ViewBag.FuelTypeFilter">
-                <option value="">-- Select Fuel Type --</option>
-            </select>
-        </div>
-        <div class="col-md-3 d-flex justify-content-end mt-2">
-            <button type="submit" class="btn btn-outline-secondary">Apply Filters</button>
-            <a asp-action="Index" class="btn btn-outline-danger ms-2">Clear Filters</a>
-        </div>
-    </div>
-</form>
-@* --- End Search and Filter Section --- *@
-
-    @* <h3 style="margin-top: 0;">User Details</h3> *@
-<table class="table table-hover table-striped mb-100px " style="background-color:gray" id="vehiclesTable">
-    <thead>
-        <tr>
-            <th data-sort-column="RegistrationNumber" class="cursor-pointer">
-                @Html.DisplayNameFor(model => model.RegistrationNumber) <span class="sort-icon"></span>
-            </th>
-            <th data-sort-column="Capacity" class="cursor-pointer">
-                @Html.DisplayNameFor(model => model.Capacity) <span class="sort-icon"></span>
-            </th>
-            <th data-sort-column="Status" class="cursor-pointer">
-                @Html.DisplayNameFor(model => model.Status) <span class="sort-icon"></span>
-            </th>
-            <th data-sort-column="LastServicedDate" class="cursor-pointer">
-                @Html.DisplayNameFor(model => model.LastServicedDate) <span class="sort-icon"></span>
-            </th>
-            <th data-sort-column="Make" class="cursor-pointer">
-                @Html.DisplayNameFor(model => model.Make) <span class="sort-icon"></span>
-            </th>
-            <th data-sort-column="Model" class="cursor-pointer">
-                @Html.DisplayNameFor(model => model.Model) <span class="sort-icon"></span>
-            </th>
-            <th data-sort-column="ManufacturingYear" class="cursor-pointer">
-                @Html.DisplayNameFor(model => model.ManufacturingYear) <span class="sort-icon"></span>
-            </th>
-            <th data-sort-column="FuelType" class="cursor-pointer">
-                @Html.DisplayNameFor(model => model.FuelType) <span class="sort-icon"></span>
-            </th>
-            <th data-sort-column="CurrentOdometerKm" class="cursor-pointer">
-                @Html.DisplayNameFor(model => model.CurrentOdometerKm) <span class="sort-icon"></span>
-            </th>
-            <th>Actions</th> @* Actions column - not sortable *@
-        </tr>
-    </thead>
-    <tbody>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RegistrationNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Capacity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastServicedDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Make)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Model)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ManufacturingYear)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FuelType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CurrentOdometerKm)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.VehicleId" class="btn btn-outline-primary">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.VehicleId" class="btn btn-outline-secondary">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.VehicleId" class="btn btn-outline-danger">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-</div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    } @* Good practice to include *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fleet Hub - We track, you relax!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
+        /* — CSS styles here — */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fffcf2;
+            color: #222;
+            margin: 0;
+        }
+
+        .btn-accent {
+            background-color: #eb5e28;
+            color: #fff;
+        }
+
+            .btn-accent:hover {
+                background-color: #ca5123;
+            }
+
+        .form-label-custom {
+            font-weight: 600;
+            color: #284B63;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-control-custom, .form-select-custom {
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #ccc;
+        }
+
+        .table-custom thead {
+            background-color: #284B63;
+            color: white;
+        }
+
+        .btn-action-small {
+            font-size: 0.85rem;
+            margin-left: 4px;
+        }
+
         .cursor-pointer {
             cursor: pointer;
         }
@@ -129,32 +69,92 @@
         }
 
         .sort-asc::after {
-            content: "\25B2"; /* Up arrow */
+            content: "▲";
         }
 
         .sort-desc::after {
-            content: "\25BC"; /* Down arrow */
+            content: "▼";
         }
-        /* Custom striping for light and dark rows */
-        #vehiclesTable.table-striped tbody tr:nth-of-type(odd) {
-            background-color: #f2f2f2; /* light gray */
-        }
-
-        #vehiclesTable.table-striped tbody tr:nth-of-type(even) {
-            background-color: #4f4f4f; /* dark gray */
-            color: white; /* text color for dark row */
-        }
-
     </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="card shadow-lg rounded-4">
+            <div class="card-header text-white bg-primary">
+                <h4 class="mb-0">Vehicles</h4>
+            </div>
+            <div class="card-body">
+                <p>
+                    <a asp-controller="Vehicles" asp-action="Create" class="btn btn-accent">Add New Vehicle</a>
+                </p>
 
+                <form method="get" class="mb-4 p-3 bg-light rounded">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-md-4 col-lg-3">
+                            <label for="SearchString" class="form-label-custom">Search</label>
+                            <input type="text"
+                                   name="SearchString"
+                                   class="form-control-custom"
+                                   value="@ViewBag.CurrentSearchString" />
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-secondary"><i class="bi bi-filter me-1"></i>Apply</button>
+                            <a asp-controller="Vehicles" asp-action="Index" class="btn btn-outline-secondary ms-2"><i class="bi bi-arrow-counterclockwise me-1"></i>Clear</a>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="table-responsive">
+                    <table class="table table-hover table-custom" id="vehiclesTable">
+                        <thead>
+                            <tr>
+                                <th class="cursor-pointer" data-sort-column="RegistrationNumber">Reg No <span class="sort-icon"></span></th>
+                                <th class="cursor-pointer" data-sort-column="Capacity">Capacity <span class="sort-icon"></span></th>
+                                <th>Status</th>
+                                <th>Last Serviced</th>
+                                <th>Make</th>
+                                <th>Model</th>
+                                <th>Year</th>
+                                <th>Fuel</th>
+                                <th>Odometer (km)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model) 
+                                
+                                {
+                                    <tr>
+                                        <td>@item.RegistrationNumber</td>
+                                        <td>@item.Capacity</td>
+                                        <td>@item.Status</td>
+                                        <td>@item.LastServicedDate.ToString()</td>
+                                        <td>@item.Make</td>
+                                        <td>@item.Model</td>
+                                        <td>@item.ManufacturingYear</td>
+                                        <td>@item.FuelType</td>
+                                        <td>@item.CurrentOdometerKm</td>
+                                        <td>
+                                    <td>
+                                        <a asp-controller="Vehicles" asp-action="Edit" asp-route-id="@item.VehicleId" class="btn btn-action-small btn-outline-primary">Edit</a>
+                                        <a asp-controller="Vehicles" asp-action="Details" asp-route-id="@item.VehicleId" class="btn btn-action-small btn-outline-info">Details</a>
+                                        <a asp-controller="Vehicles" asp-action="Delete" asp-route-id="@item.VehicleId" class="btn btn-action-small btn-outline-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const table = document.getElementById('vehiclesTable');
-            if (!table) return;
-
             const headers = table.querySelectorAll('th[data-sort-column]');
             const tbody = table.querySelector('tbody');
-            if (!tbody) return;
 
             let currentSortColumn = null;
             let currentSortDirection = 'asc';
@@ -162,72 +162,37 @@
             headers.forEach(header => {
                 header.addEventListener('click', function () {
                     const column = this.dataset.sortColumn;
-
                     if (currentSortColumn === column) {
-                        currentSortDirection = (currentSortDirection === 'asc' ? 'desc' : 'asc');
+                        currentSortDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
                     } else {
-                        currentSortDirection = 'asc'; // Reset direction if new column is clicked
+                        currentSortDirection = 'asc';
                     }
                     currentSortColumn = column;
 
-                    // Remove existing sort icons and classes from all headers
-                    headers.forEach(h => {
-                        h.classList.remove('sort-asc', 'sort-desc');
+                    headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+                    this.classList.add(currentSortDirection === 'asc' ? 'sort-asc' : 'sort-desc');
+
+                    const index = Array.from(headers).indexOf(this);
+                    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                    rows.sort((a, b) => {
+                        const valA = a.children[index].innerText.trim();
+                        const valB = b.children[index].innerText.trim();
+
+                        const numA = parseFloat(valA);
+                        const numB = parseFloat(valB);
+                        if (!isNaN(numA) && !isNaN(numB)) {
+                            return currentSortDirection === 'asc' ? numA - numB : numB - numA;
+                        }
+                        return currentSortDirection === 'asc'
+                            ? valA.localeCompare(valB)
+                            : valB.localeCompare(valA);
                     });
 
-                    // Add new sort icon class to the clicked header
-                    if (currentSortDirection === 'asc') {
-                        this.classList.add('sort-asc');
-                    } else {
-                        this.classList.add('sort-desc');
-                    }
-
-                    sortTable(column, currentSortDirection);
+                    rows.forEach(row => tbody.appendChild(row));
                 });
             });
-
-            function sortTable(columnName, direction) {
-                const rows = Array.from(tbody.querySelectorAll('tr'));
-
-                rows.sort((a, b) => {
-                    const headerIndex = Array.from(headers).findIndex(h => h.dataset.sortColumn === columnName);
-                    if (headerIndex === -1) return 0;
-
-                    const cellA = a.children[headerIndex];
-                    const cellB = b.children[headerIndex];
-
-                    if (!cellA || !cellB) return 0;
-
-                    const valA = cellA.textContent.trim();
-                    const valB = cellB.textContent.trim();
-
-                    let comparison = 0;
-
-                    // Try to convert to number for numeric columns
-                    const numA = parseFloat(valA);
-                    const numB = parseFloat(valB);
-
-                    if (!isNaN(numA) && !isNaN(numB)) {
-                        comparison = numA - numB;
-                    }
-                    // Try to convert to date for date columns (using multiple common formats)
-                    else if (moment && (moment(valA, ['YYYY-MM-DD', 'MMM DD, YYYY'], true).isValid() && moment(valB, ['YYYY-MM-DD', 'MMM DD, YYYY'], true).isValid())) {
-                        const dateA = moment(valA, ['YYYY-MM-DD', 'MMM DD, YYYY'], true).valueOf();
-                        const dateB = moment(valB, ['YYYY-MM-DD', 'MMM DD, YYYY'], true).valueOf();
-                        comparison = dateA - dateB;
-                    }
-                    // Otherwise, compare as strings (case-insensitive)
-                    else {
-                        comparison = valA.localeCompare(valB, undefined, { sensitivity: 'base' });
-                    }
-
-                    return direction === 'asc' ? comparison : -comparison;
-                });
-
-                // Re-append sorted rows to the tbody
-                rows.forEach(row => tbody.appendChild(row));
-            }
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-}
+</body>
+</html>
